@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  alpine:
+    image: alpine:latest
+    volumes:
+      - ../tp2:/srv/app
+    working_dir: /srv/app
+    networks:
+      - internal
+
+  alpine-local:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+      - sh -c "rsync -r alpine:/srv/app/ /srv/app/ && cat /srv/app/lorem.txt && sleep infinity"
+    networks:
+      - internal
+
+networks:
+  internal:

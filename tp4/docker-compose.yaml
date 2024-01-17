@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  frontend:
+    image: httpd:alpine
+    volumes:
+      - ../tp2:/var/www/html
+    working_dir: /var/www/html
+    command: >
+      sh -c "echo 'Melanyyyy' >> lorem.txt"

@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  apache:
+    image: melanymai/melany-apache:1.1
+    volumes:
+      - ../tp2:/srv/app
+    working_dir: /srv/app
+    command: >
+      sh -c "cat lorem.txt"
